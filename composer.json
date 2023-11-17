@@ -26,7 +26,8 @@
   "prefer-stable": true,
   "autoload": {
     "psr-4": {
-      "Hellonico\\Fixtures\\": "src/"
+      "Hellonico\\Fixtures\\": "src/",
+      "Faker\\Provider\\": "src/Provider/Default/"
     },
     "files": [
       "command.php"
