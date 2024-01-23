@@ -14,6 +14,13 @@ use WP_CLI_Command;
 class Command extends WP_CLI_Command
 {
     /**
+     * Locale mapping between WordPress and Faker.
+     */
+    protected const LOCALE_WP_FAKER = array(
+        'ja' => 'ja_JP',
+    );
+
+    /**
      * Loads and save fixtures.
      *
      * ## OPTIONS
@@ -52,7 +59,7 @@ class Command extends WP_CLI_Command
         add_filter('notify_moderator', '__return_false', PHP_INT_MAX);
 
         // Set locale
-        $generator = Factory::create(get_locale());
+        $generator = Factory::create($this->getLocale());
         $generator->addProvider(new AliceProvider());
         // Add provider
         $generator->addProvider(new WordPress($generator));
@@ -154,5 +161,16 @@ class Command extends WP_CLI_Command
         }
 
         return $type;
+    }
+
+    /**
+     * Get the locale to use for Faker.
+     *
+     * @return string
+     */
+    private function getLocale()
+    {
+        $locale = get_locale();
+        return self::LOCALE_WP_FAKER[$locale] ?? $locale;
     }
 }
