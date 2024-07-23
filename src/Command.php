@@ -18,6 +18,7 @@ class Command extends WP_CLI_Command
      */
     protected const LOCALE_WP_FAKER = array(
         'ja' => 'ja_JP',
+        'ar' => 'ar_SA',
     );
 
     /**
