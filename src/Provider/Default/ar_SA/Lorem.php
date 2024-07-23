@@ -1,6 +1,6 @@
 <?php
 
-namespace Faker\Provider\ar_SA\Lorem;
+namespace Faker\Provider\ar_SA;
 
 class Lorem extends \Hellonico\Fixtures\Provider\Lorem
 {
